@@ -1,11 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-//import product controller
 use App\Http\Controllers\ProductController;
 
-//route resource for products
 Route::resource('/products', ProductController::class);
 
 Route::get('/', function () {
@@ -26,3 +23,12 @@ Route::get('/siswa/create', [SiswaController::class, 'create'])
 
 Route::post('/siswa', [SiswaController::class, 'store'])
     ->name('siswa.store');
+
+Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit'])
+    ->name('siswa.edit');
+
+Route::put('/siswa/{id}', [SiswaController::class, 'update'])
+    ->name('siswa.update');
+
+Route::delete('/siswa/{id}', [SiswaController::class, 'destroy'])
+    ->name('siswa.destroy');
